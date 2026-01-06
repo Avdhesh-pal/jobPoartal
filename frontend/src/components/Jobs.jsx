@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Job from './shared/job'
+import Job from './shared/Job'
 import Navbar from './shared/Navbar';
 import FilterCard from './shared/FilterCard';
 import { useNavigate, Outlet } from 'react-router-dom';
