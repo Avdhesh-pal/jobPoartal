@@ -61,7 +61,7 @@ export const getCompanyById = async(req,res)=>{
                 success:false
             })
         }
-        return res.status(404).json({
+        return res.status(200).json({
             company,
             success:true
         })
