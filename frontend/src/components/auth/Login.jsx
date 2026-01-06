@@ -40,8 +40,10 @@ const Login = () => {
         headers: {
           "content-Type": "application/json"
         },
-        withCredentials: true,
+       
       });
+      // store in localstoreage
+      localStorage.setItem("token", res.data.token);
       if (res.data.success) {
        
         dispatch(setUser(res.data.userData));
