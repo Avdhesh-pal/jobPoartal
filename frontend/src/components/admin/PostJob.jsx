@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Navbar from '../shared/Navbar';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
-import { Label } from '../ui/Label'
+import { Label } from '../ui/label'
 import {
   Select,
   SelectContent,
