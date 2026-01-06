@@ -21,7 +21,7 @@ app.use(express.static("public"));
 app.use(cookieParser());
 
 const corsOption ={
-    origin :"http://localhost:5173",
+    origin :"https://jobpoartal-3.onrender.com",
     credentials :true
 }
 app.use(cors(corsOption));
