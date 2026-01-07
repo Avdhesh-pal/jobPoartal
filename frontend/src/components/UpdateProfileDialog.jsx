@@ -63,8 +63,7 @@ const UpdatteProfileDialog = ({ open, setOpen }) => {
       const res = await axios.post(`${USER_API_END_POINT}/profile/update`, formData, {
         headers: {
            Authorization: `Bearer ${localStorage.getItem("token")}`
-        },
-        withCredentials: true
+        }
       });
       if (res.data.success) {
         dispatch(setUser(res.data.user));
