@@ -14,7 +14,11 @@ const Applicants = () => {
     useEffect(() => {
         const fetchApplications = async () => {
             try {
-                const res = await axios.get(`${APPLICATION_API_END_POINT}/${params.id}/applicants`, { withCredentials: true });
+                const res = await axios.get(`${APPLICATION_API_END_POINT}/${params.id}/applicants`, { 
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    }
+                 });
                 if (res.data.success) {
                     console.log("res data",res.data);
                     dispatch(setAllApplicants(res.data.job));

@@ -44,10 +44,10 @@ const PostJob = () => {
     try {
       setLoading(true);
       const res = await axios.post(`${JOB_API_END_POINT}/post`, input, {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        withCredentials: true
+         headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            'Content-Type': 'application/json'
+          }
       })
       if (res.data.success) {
         toast.success(res.data.message);

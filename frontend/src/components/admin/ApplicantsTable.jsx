@@ -12,9 +12,10 @@ const ApplicantsTable = () => {
     const statusHandler = async(status,id)=>{
        
         try {
-            axios.defaults.withCredentials = true;
             const res = await axios.post(`${APPLICATION_API_END_POINT}/status/${id}/update`,{status},{
-                withCredentials:true
+                 headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
+                }
             });
             if(res.data.success){
                 toast.success(res.data.message);
