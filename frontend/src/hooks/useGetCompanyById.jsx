@@ -14,7 +14,11 @@ const useGetCompanyById = (companyId) => {
 
         try {
             console.log("Getting company by ID:", companyId);
-            const res = await axios.get(`${COMPANY_API_END_POINT}/get/${companyId}`,{withCredentials:true});
+            const res = await axios.get(`${COMPANY_API_END_POINT}/get/${companyId}`,{
+                headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            });
             if(res.data.success){
                 dispatch(setSingleCompany(res.data.company))
             }

@@ -20,7 +20,11 @@ const JobDescription = () => {
   const [isApplied, setIsApplied] = useState(isInitiallyApplied)
   const applyJobHandler = async () => {
     try {
-      const res = await axios.get(`${APPLICATION_API_END_POINT}/apply/${jobId}`, { withCredentials: true });
+      const res = await axios.get(`${APPLICATION_API_END_POINT}/apply/${jobId}`, { 
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+          }
+       });
       console.log("response data", res.data)
       if (res.data.success) {
         setIsApplied(true)// update the local state

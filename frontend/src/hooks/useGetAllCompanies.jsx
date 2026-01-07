@@ -13,7 +13,11 @@ const useGetAllCompanies = () => {
     const fetchCompanies = async()=>{
 
         try {
-            const res = await axios.get(`${COMPANY_API_END_POINT}/get`,{withCredentials:true});
+            const res = await axios.get(`${COMPANY_API_END_POINT}/get`,{
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            });
             if(res.data.success){
                 dispatch(setCompanies(res.data.companies))
             }
